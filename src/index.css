@@ -1,17 +1,12 @@
 * {
-  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #202124;
 }
 
-h1,
-h2,
-h3,
-input,
-button {
-  font-family: 'Press Start 2P', system-ui;
+button:hover {
+  cursor: pointer;
 }
 
 #root {
@@ -23,89 +18,128 @@ button {
   gap: 14px;
 }
 
-header {
-  display: flex;
-  align-items: stretch;
+body {
+  background-color: #f5f5dc; /* Beige paper-like background */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for a classic look */
+  margin: 0;
+  padding: 0;
 }
 
-header,
-.main {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  gap: 14px;
-}
-
-header input {
-  flex: 1;
-  border-radius: 14px;
-  outline: none;
-  width: 100%;
-}
-
-header button {
-  border-radius: 14px;
-  background: transparent;
-  transition-duration: 200ms;
-  cursor: pointer;
-}
-
-header button:hover {
-  opacity: 0.7;
-}
-
-header button,
-header input {
-  padding: 14px 18px;
+input[type="text"] {
+  width: 90%;
   border: none;
+  border-bottom: 2px solid #ddd;
+  background: none;
   outline: none;
-  background: white;
+  font-family: inherit;
+  font-size: 16px;
 }
 
-p {
-  font-size: 0.9em;
+.todo-container {
+  background-color: #fff;
+  background: repeating-linear-gradient(
+    0deg,
+    #fff,
+    #fff 20px,
+    #cde6f1 22px
+  );
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 40px 8px 10px 80px;
+  width: 95%;
+  height: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  line-height: 1.9;
+  position: relative;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.todo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 80px; /* Adjust to match the left padding */
+  width: 1px; /* Thickness of the red line */
+  background-color: rgb(222, 72, 72);
 }
 
-.todoItem {
+.todo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 75px; /* Adjust to control the position of the red line */
+  width: 1px; /* Thickness of the red line */
+  background-color: rgb(222, 72, 72);
+}
+
+.todo-container::after {
+  content: '';
+  position: absolute;
+  top: 100px; /* Distance from top */
+  left: 30px; /* Position the holes from the left */
+  width: 10px;
+  height: 10px;
+  background-color: #c1bdbd;
+  border-radius: 50%;
+  border: 3px solid #9c9797; /* Simulate the edge of the hole */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.add-todo-input {
+  padding: 12px;
+  width: 75%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 10px 8px 8px 0px;
+}
+
+.add-todo-button {
+  max-width: 50%;
+  padding: 12px;
+  box-shadow: 0px 0px 5px black;
+  background-color: rgb(214, 214, 254);
+}
+
+.add-todo-button:hover {
+  cursor: pointer;
+  background-color: rgb(173, 173, 224);
+}
+
+.task-input {
+  width: 18px;
+  height: 18px;
+  accent-color: #ccf5ce;
+  border: 1px solid black;
+}
+
+.task-input:hover {
+  cursor: pointer;
+  border: 1px solid black;
+  background: #ccf5ce;
+}
+
+.task-input:checked {
+  border: 1px solid black;
+}
+
+.delete-todo-button {
+  border: none;
+}
+
+.edit-todo-button {
+  border: none;
+}
+
+.todo-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px;
-  border-radius: 14px;
-  background: white;
+  gap: 12px; /* Adds consistent space between child elements */
 }
-
-.todoItem p {
-  flex: 1;
-}
-
-.actionsContainer {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.actionsContainer button {
-  transition-duration: 200ms;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.actionsContainer button:hover {
-  opacity: 0.7;
-}
-
 
 
 @media (min-width: 640px) {
-
   header button,
   header input {
     font-size: 1.2em;

@@ -1,28 +1,18 @@
-import React from 'react';
+import React from "react";
+import Task from './Task';
 
 export default function TodoList({ todos, handleEditTodo, handleDeleteTodo }) {
-
-    return (
-        <ul>
-            {todos.map((todo) => {
-                return (
-                    <li key={todo.id} className='todoItem'>
-                    {todo.name}
-                    <div className='actionsContainer'>
-                        <button onClick={() => {
-                            handleEditTodo(todo.id)
-                        }}>
-                            <i className="fa-solid fa-pen-to-square"></i>
-                        </button>
-                        <button onClick={() => {
-                            handleDeleteTodo(todo.id)
-                        }}>
-                            <i className="fa-regular fa-trash-can"></i>
-                        </button>
-                    </div>
-                    </li>
-                )
-            })}
-        </ul>
-    )
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <Task
+            todo={todo}
+            handleEditTodo={handleEditTodo}
+            handleDeleteTodo={handleDeleteTodo}
+          />
+        </div>
+      ))}
+    </ul>
+  );
 }
